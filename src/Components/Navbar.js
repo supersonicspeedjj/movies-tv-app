@@ -7,10 +7,10 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-
+import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-
+import logo1 from './logo.png'
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -37,7 +37,8 @@ function ResponsiveAppBar() {
     <AppBar position="static" style={{color:'black',backgroundColor:"#f57c00"}} >
       <Container maxWidth="xl" >
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <TheaterComedyIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 ,fontSize:"2rem"}} />
+          
           <Typography
             variant="h6"
             noWrap
