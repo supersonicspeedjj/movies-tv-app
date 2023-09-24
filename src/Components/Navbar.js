@@ -11,6 +11,7 @@ import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import logo1 from './logo.png'
+import Searchcomp from './Searchcomp';
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -33,11 +34,14 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
+
+
+
   return (
     <AppBar position="static" style={{color:'black',backgroundColor:"#f57c00"}} >
       <Container maxWidth="xl" >
         <Toolbar disableGutters>
-          <TheaterComedyIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 ,fontSize:"2rem"}} />
+          <TheaterComedyIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 ,fontSize:"3rem"}} />
           
           <Typography
             variant="h6"
@@ -47,14 +51,14 @@ function ResponsiveAppBar() {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'quicksand',
+              fontFamily: 'sans-serif',
               fontWeight: 700,
               letterSpacing: '.1rem',
               color: 'black',
               textDecoration: 'none',
             }}
           >
-            LOGO
+           Watch Compass
           </Typography>
 
          
@@ -78,8 +82,22 @@ function ResponsiveAppBar() {
           >
             LOGO
           </Typography>
-          
-
+          {/* <Box sx={{
+  flexGrow: 1,
+  display: 'flex',
+  justifyContent: 'flex-end',
+  alignItems: 'right',
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  maxWidth: '100%',
+  '& > *': {
+    m: 1,
+    width: '100%',
+    maxWidth: '300px',
+  },
+}}>
+  <Searchcomp />
+</Box> */}
           
         </Toolbar>
       </Container>

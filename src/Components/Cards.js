@@ -20,7 +20,7 @@ export default function Cards(props) {
         />
         <CardContent>
           <Typography gutterBottom variant="h7" component="div">
-           <div style={{fontWeight:"bolder",fontFamily:"sans-serif"}}> {props.title}</div> 
+           <div style={{fontWeight:"bolder",fontFamily:"sans-serif",textDecoration:"none"}}> {props.title}</div> 
            
           </Typography>
          

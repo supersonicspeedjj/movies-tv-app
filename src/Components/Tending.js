@@ -5,6 +5,7 @@ import React from "react";
 import Cards from "./Cards";
 import Grid from "@mui/material/Grid";
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 function Tending() {
   const [trendtv, settv] = useState([]);
@@ -16,11 +17,25 @@ function Tending() {
   const [year_m,setyaer_m] = useState([]);
   const [id,setid] = useState([]);
   const [idm,setidm] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     // eslint-disable-next-line
 
     fetchData();
   }, []);
+
+  const handleFocus = () => {
+    navigate("/particular/tv"); // Redirect to /search when the text field is focused
+    
+  };
+
+  const handleFocus2 = () => {
+    navigate("/particular/movies"); // Redirect to /search when the text field is focused
+    
+  };
+
+
+
   async function fetchData() {
     try {
 
@@ -100,6 +115,9 @@ function Tending() {
 
     
       </div>
+      <div style={{textAlign: "right", marginTop:"10px", marginBottom:"20px",marginRight:"10px"}}>
+          <Button style={{fontSize:"1.2rem", width:"fit-content"}} onClick={handleFocus}>Load More</Button>
+        </div>
       <div style={{ display: "flex", flexDirection: "row" }}>
   {should ? ( 
     <Grid
@@ -139,7 +157,9 @@ function Tending() {
 <div style={{textAlign:"left",marginLeft:"37px",fontFamily:"sans-serif",}}>
     
         <h1 style={{}}>Discover Trending Movies </h1> 
-        <Button style={{marginLeft:"87%",display:"inline",marginTop:"-80px",marginBottom:"20px",fontSize:"1.2rem"}}>Load More</Button>
+        <div style={{textAlign: "right", marginTop:"10px", marginBottom:"20px",marginRight:"10px"}}>
+          <Button style={{fontSize:"1.2rem", width:"fit-content"}} onClick={handleFocus2}>Load More</Button>
+        </div>
 
     
       </div>
@@ -149,7 +169,7 @@ function Tending() {
       container
       spacing={{ xs: 2, md: 3 }}
       columns={{ xs: 4, sm: 8, md: 40 }}
-      style={{ marginLeft: "10px", marginRight: "20px" }}
+      style={{ marginLeft: "10px", marginRight: "20px",marginBottom:"20px" }}
     >
       {Array.from(Array(10)).map((_, index) => (
         <Grid item xs={3} sm={4} md={4} key={index}>
@@ -162,7 +182,7 @@ function Tending() {
       container
       spacing={{ xs: 2, md: 3 }}
       columns={{ xs: 4, sm: 8, md: 40 }}
-      style={{ marginLeft: "10px", marginRight: "20px" }}
+      style={{ marginLeft: "10px", marginRight: "20px",marginBottom:"20px" }}
     >
       {Array.from(Array(10)).map((_, index) => (
         <Grid item xs={3} sm={4} md={4} key={index}>

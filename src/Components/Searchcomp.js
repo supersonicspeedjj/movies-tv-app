@@ -1,4 +1,4 @@
-import Button from "@mui/material/Button";
+import IconButton from "@mui/material/Button";
 import * as React from "react";
 import { useState, useRef } from "react"; // Import useRef
 import TextField from "@mui/material/TextField";
@@ -31,7 +31,7 @@ function Searchcomp(props) {
   async function caller() {
     try {
       console.log(message);
-      props.changer();
+    //  props.changer();
       const response = await fetch(
         `http://www.omdbapi.com/?s=${message}&apikey=119048c4&plot=full`
       );
@@ -63,16 +63,26 @@ function Searchcomp(props) {
 
   return (
     <div>
-      
+      <div style={{display:"flex",justifyContent:"flex-end",marginTop:"20px"}}>
       <TextField
+       size="small" 
         label="search"
         onChange={handleChange}
         onFocus={handleFocus} // Redirect to /search when the text field is focused
         inputRef={inputRef} // Pass the ref to the text field
+        sx={{
+          borderRadius: '100px', // Add this to set the border radius
+          width: '200px', // Add this to reduce the width
+        }}
       />
-      <Button variant="contained" startIcon={<SearchIcon />} onClick={caller}>
-        search
-      </Button>
+      <IconButton aria-label="search" onClick={caller} style={{width:"10px"}}>
+      <SearchIcon />
+</IconButton>
+      {/* <Button variant="contained" startIcon={}  style={{height:"30px",width:""}}>
+        
+      </Button> */}
+      </div>
+     
       <div style={{ display: "flex", flexDirection: "row" }}>
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 20 }} style={{ marginLeft: '10px', marginRight: '20px' }}>
           {load && Array.from(Array(results)).map((_, index) => (

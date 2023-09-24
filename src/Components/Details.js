@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-
+import Skeleton from "@mui/material/Skeleton";
+import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
 import YouTube from "react-youtube";
 function Details() {
@@ -13,6 +14,7 @@ function Details() {
   const [ytid, setytid] = useState();
   const [desc, setdesc] = useState("");
   const [category, setcategory] = useState("");
+  const [should, setshould] = useState(false);  
   useEffect(() => {
     // eslint-disable-next-line
 
@@ -21,7 +23,7 @@ function Details() {
   }, []);
   async function loader() {
     try {
-      
+      setshould(false);
       const url = `http://www.omdbapi.com/?i=${id}&plot=full&apikey=119048c4`;
       const url1 = `https://www.googleapis.com/youtube/v3/search?key=AIzaSyAbaxLNXK4HlcZ3Pg6zzMNJzThzNsgoxDo&q=${title}+${year}+official+trailer`;
       const response = await fetch(url);
@@ -34,6 +36,7 @@ function Details() {
       setcategory(data.Genre);
       setytid(data_yt.items[0].id.videoId);
       console.log(category);
+      setshould(true);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -68,7 +71,7 @@ function Details() {
           alignItems: "center", // Center the content vertically
         }}
       >
-        <Paper
+       { should?(  <Paper
           elevation={3}
           sx={{
             display: "flex",
@@ -79,7 +82,9 @@ function Details() {
             margin: "20px",
           }}
         >
-          <img
+        
+        
+         <img
             src={poster}
             alt={title}
             style={{
@@ -116,8 +121,15 @@ function Details() {
             </Typography>
             <h2 >Watch the Trailer</h2>
             <YouTube videoId={ytid} />;
+          
           </div>
-        </Paper>
+        </Paper>):(
+            <div>
+              <Skeleton variant="rounded" width={1200} height={450} animation="wave" sx={{ bgcolor: 'black.900' }} />
+             
+
+            </div>
+          )}
       </Box>
     </div>
   );

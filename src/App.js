@@ -6,6 +6,7 @@ import Tending from './Components/Tending';
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Details from "./Components/Details";
+import Particular from "./Components/Particular";
 
 
 
@@ -26,7 +27,8 @@ function App() {
 	<Routes>
 		<Route path="/particular/:title/:year/:id" element={<div> <Searchcomp changer={changer}></Searchcomp><Details /></div>}/> 
     <Route path='/'element={<div> <Searchcomp changer={changer}></Searchcomp><Tending></Tending></div>}/>
-    <Route path='/search' element={<Searchcomp changer={changer}></Searchcomp>}></Route>
+    <Route path='/search' element={<Searchcomp changer={changer}></Searchcomp>}/>
+    <Route path='/particular/:type' element={<div><Searchcomp changer={changer}></Searchcomp><Particular></Particular></div>}/>
 	</Routes>
     
 </BrowserRouter>
