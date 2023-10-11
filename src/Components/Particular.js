@@ -6,16 +6,13 @@ import { useParams } from "react-router-dom";
 import Cards from "./Cards";
 import Grid from "@mui/material/Grid";
 const Particular = memo(() => {
-    const [titles, settitles] = useState([]);
+    
     const [titles_tv, settitles_tv] = useState([]);
     const [trendtv, settv] = useState([]);
     const {type} = useParams();
     const [id,setid] = useState([]);
     const [year_s,setyaer_s] = useState([]);
-    const [movies,setmovies] = useState([]);
-    const [movti,setmovti] = useState([]);
-    const [year_m,setyaer_m] = useState([]);
-    const [idm,setidm] = useState([]);
+   
     const [should, setshould] = useState(false);
     function getStrBeforeColon(str) {
         for (var i = 0; i < str.length; i++) {
@@ -28,7 +25,9 @@ const Particular = memo(() => {
 
 
     useEffect( () => {
+       // eslint-disable-next-line
         fetchData();
+        // eslint-disable-next-line
     }, []);
     
     async function fetchData() {
@@ -39,7 +38,7 @@ const Particular = memo(() => {
             const data = await response.json();
             const text = data.map((itera) => itera.text);
             settitles_tv(text);
-            const i=0;
+      
             const fetchImageAndIdData = async (titlesArray, setImagesFunc, setIdFunc, setyaer_s) => {
                 const imageAndIdRequests = titlesArray.map(async (title) => {
                   const response = await fetch(
@@ -76,7 +75,7 @@ const Particular = memo(() => {
             const data = await response.json();
             const text = data.map((itera) => itera.text);
             settitles_tv(text);
-            const i=0;
+          
             const fetchImageAndIdData = async (titlesArray, setImagesFunc, setIdFunc, setyaer_s) => {
                 const imageAndIdRequests = titlesArray.map(async (title) => {
                   const response = await fetch(

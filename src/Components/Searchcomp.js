@@ -6,7 +6,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import Cards from "./Cards";
 import Grid from '@mui/material/Grid';
 import alter from "./cinema.jpg"
-import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
+import {  useNavigate } from "react-router-dom"; // Import useNavigate
 
 function Searchcomp(props) {
   const [message, setmessage] = useState("");

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Skeleton from "@mui/material/Skeleton";
-import Stack from "@mui/material/Stack";
+
 import Paper from "@mui/material/Paper";
 import YouTube from "react-youtube";
 function Details() {

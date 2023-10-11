@@ -6,8 +6,10 @@ import Cards from "./Cards";
 import Grid from "@mui/material/Grid";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import clevertap from "clevertap-web-sdk";
 
 function Tending() {
+  
   const [trendtv, settv] = useState([]);
   const [should, setshould] = useState(false);
   const [titles, settitles] = useState([]);
@@ -18,6 +20,10 @@ function Tending() {
   const [id,setid] = useState([]);
   const [idm,setidm] = useState([]);
   const navigate = useNavigate();
+
+
+ 
+
   useEffect(() => {
     // eslint-disable-next-line
 
@@ -25,12 +31,14 @@ function Tending() {
   }, []);
 
   const handleFocus = () => {
-    navigate("/particular/tv"); // Redirect to /search when the text field is focused
-    
+    clevertap.event.push('Charged');
+    navigate("/particular/tv"); 
+  
   };
 
   const handleFocus2 = () => {
-    navigate("/particular/movies"); // Redirect to /search when the text field is focused
+    
+    navigate("/particular/movies"); 
     
   };
 
@@ -83,7 +91,8 @@ function Tending() {
             year: imageData.data.movies[0].year,
           };
         });
-  
+        
+        
         const imageAndIdData = await Promise.all(imageAndIdRequests);
         const ids = imageAndIdData.map((item) => item.idIMDB);
         const images = imageAndIdData.map((item) => item.urlPoster);
@@ -115,6 +124,8 @@ function Tending() {
 
     
       </div>
+     
+      
       <div style={{textAlign: "right", marginTop:"10px", marginBottom:"20px",marginRight:"10px"}}>
           <Button style={{fontSize:"1.2rem", width:"fit-content"}} onClick={handleFocus}>Load More</Button>
         </div>
@@ -125,6 +136,15 @@ function Tending() {
       spacing={{ xs: 2, md: 3 }}
       columns={{ xs: 4, sm: 8, md: 40 }}
       style={{ marginLeft: "10px", marginRight: "20px" }}
+      sx={{
+        justifyContent: 'center', 
+        '@media (max-width: 600px)': { 
+          '& > *': {
+            m: 1,
+            width: '100%',
+          },
+        },
+      }}
     >
       {Array.from(Array(10)).map((_, index) => (
         <Grid item xs={3} sm={4} md={4} key={index}>
@@ -140,12 +160,23 @@ function Tending() {
       spacing={{ xs: 2, md: 3 }}
       columns={{ xs: 4, sm: 8, md: 40 }}
       style={{ marginLeft: "10px", marginRight: "20px" }}
+      sx={{
+       
+        // Add this to center the cards and skeletons on mobile devices
+       '@media (max-width: 600px)': { // Add this media query to apply the styles only on mobile devices
+         '& > *': {
+           m: 1,
+           width: '100%',
+           marginLeft:"100px"
+         },
+       },
+     }}
     >
       {Array.from(Array(10)).map((_, index) => (
         <Grid item xs={3} sm={4} md={4} key={index} >
           <Stack spacing={1}>
-            <Skeleton variant="rounded" width={120} height={160} animation="wave" />
-            <Skeleton variant="rounded" width={120} height={50} animation="wave" />
+            <Skeleton variant="rounded" width={120} height={160} animation="wave" sx={{ width: '100%' }}/>
+            <Skeleton variant="rounded" width={120} height={50} animation="wave" sx={{ width: '100%' }}/>
           </Stack>
         </Grid>
       ))}
@@ -170,6 +201,15 @@ function Tending() {
       spacing={{ xs: 2, md: 3 }}
       columns={{ xs: 4, sm: 8, md: 40 }}
       style={{ marginLeft: "10px", marginRight: "20px",marginBottom:"20px" }}
+      sx={{
+        justifyContent: 'center', // Add this to center the cards and skeletons on mobile devices
+        '@media (max-width: 600px)': { // Add this media query to apply the styles only on mobile devices
+          '& > *': {
+            m: 1,
+            width: '100%',
+          },
+        },
+      }}
     >
       {Array.from(Array(10)).map((_, index) => (
         <Grid item xs={3} sm={4} md={4} key={index}>
@@ -183,12 +223,23 @@ function Tending() {
       spacing={{ xs: 2, md: 3 }}
       columns={{ xs: 4, sm: 8, md: 40 }}
       style={{ marginLeft: "10px", marginRight: "20px",marginBottom:"20px" }}
+      sx={{
+       
+         // Add this to center the cards and skeletons on mobile devices
+        '@media (max-width: 600px)': { // Add this media query to apply the styles only on mobile devices
+          '& > *': {
+            m: 1,
+            width: '100%',
+            marginLeft:"100px"
+          },
+        },
+      }}
     >
       {Array.from(Array(10)).map((_, index) => (
         <Grid item xs={3} sm={4} md={4} key={index}>
           <Stack spacing={1}>
-            <Skeleton variant="rounded" width={120} height={160} animation="wave" />
-            <Skeleton variant="rounded" width={120} height={50} animation="wave" />
+            <Skeleton variant="rounded" width={120} height={160} animation="wave" sx={{ width: '100%' }} />
+            <Skeleton variant="rounded" width={120} height={50} animation="wave"  sx={{ width: '100%' }}/>
           </Stack>
         </Grid>
       ))}
