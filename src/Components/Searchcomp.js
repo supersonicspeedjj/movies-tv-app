@@ -33,7 +33,7 @@ function Searchcomp(props) {
       console.log(message);
     //  props.changer();
       const response = await fetch(
-        `http://www.omdbapi.com/?s=${message}&apikey=119048c4&plot=full`
+        `https://www.omdbapi.com/?s=${message}&apikey=119048c4&plot=full`
       );
 
       if (!response.ok) {
