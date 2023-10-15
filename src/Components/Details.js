@@ -24,7 +24,7 @@ function Details() {
   async function loader() {
     try {
       setshould(false);
-      const url = `http://www.omdbapi.com/?i=${id}&plot=full&apikey=119048c4`;
+      const url = `https://www.omdbapi.com/?i=${id}&plot=full&apikey=119048c4`;
       const url1 = `https://www.googleapis.com/youtube/v3/search?key=AIzaSyAbaxLNXK4HlcZ3Pg6zzMNJzThzNsgoxDo&q=${title}+${year}+official+trailer`;
       const response = await fetch(url);
       const response_yt = await fetch(url1);
