@@ -67,8 +67,8 @@ function Details() {
           display: "flex",
           flexDirection: "row",
           flexWrap: "wrap",
-          justifyContent: "center", // Center the content horizontally
-          alignItems: "center", // Center the content vertically
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
        { should?(  <Paper

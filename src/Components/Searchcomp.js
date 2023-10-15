@@ -1,12 +1,12 @@
 import IconButton from "@mui/material/Button";
 import * as React from "react";
-import { useState, useRef } from "react"; // Import useRef
+import { useState, useRef } from "react"; 
 import TextField from "@mui/material/TextField";
 import SearchIcon from "@mui/icons-material/Search";
 import Cards from "./Cards";
 import Grid from '@mui/material/Grid';
 import alter from "./cinema.jpg"
-import {  useNavigate } from "react-router-dom"; // Import useNavigate
+import {  useNavigate } from "react-router-dom"; 
 
 function Searchcomp(props) {
   const [message, setmessage] = useState("");
@@ -16,15 +16,15 @@ function Searchcomp(props) {
   const [load, setload] = useState(false);
   const [id,setid] = useState([]);
   const [year,setyear] = useState([]);
-  const navigate = useNavigate(); // Initialize navigate from React Router
-  const inputRef = useRef(null); // Create a ref for the text field
+  const navigate = useNavigate(); 
+  const inputRef = useRef(null);
 
   const handleChange = (event) => {
     setmessage(event.target.value);
   };
 
   const handleFocus = () => {
-    navigate("/search"); // Redirect to /search when the text field is focused
+    navigate("/search"); 
     
   };
   
@@ -54,7 +54,6 @@ function Searchcomp(props) {
       setresults(data.totalResults > 10 ? 10 : data.totalResults);
       setload(true);
 
-      // Set focus back to the text field
      
     } catch (error) {
       console.error('An error occurred:', error);
@@ -68,11 +67,12 @@ function Searchcomp(props) {
        size="small" 
         label="search"
         onChange={handleChange}
-        onFocus={handleFocus} // Redirect to /search when the text field is focused
-        inputRef={inputRef} // Pass the ref to the text field
+        onFocus={handleFocus} 
+        inputRef={inputRef} 
         sx={{
-          borderRadius: '100px', // Add this to set the border radius
-          width: '200px', // Add this to reduce the width
+          borderRadius: '100px', 
+          width: '200px', 
+          marginBottom: '30px',
         }}
       />
       <IconButton aria-label="search" onClick={caller} style={{width:"10px"}}>

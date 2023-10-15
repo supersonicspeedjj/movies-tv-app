@@ -162,8 +162,8 @@ function Tending() {
       style={{ marginLeft: "10px", marginRight: "20px" }}
       sx={{
        
-        // Add this to center the cards and skeletons on mobile devices
-       '@media (max-width: 600px)': { // Add this media query to apply the styles only on mobile devices
+        
+       '@media (max-width: 600px)': { 
          '& > *': {
            m: 1,
            width: '100%',
@@ -202,8 +202,8 @@ function Tending() {
       columns={{ xs: 4, sm: 8, md: 40 }}
       style={{ marginLeft: "10px", marginRight: "20px",marginBottom:"20px" }}
       sx={{
-        justifyContent: 'center', // Add this to center the cards and skeletons on mobile devices
-        '@media (max-width: 600px)': { // Add this media query to apply the styles only on mobile devices
+        justifyContent: 'center', 
+        '@media (max-width: 600px)': { 
           '& > *': {
             m: 1,
             width: '100%',
@@ -225,8 +225,8 @@ function Tending() {
       style={{ marginLeft: "10px", marginRight: "20px",marginBottom:"20px" }}
       sx={{
        
-         // Add this to center the cards and skeletons on mobile devices
-        '@media (max-width: 600px)': { // Add this media query to apply the styles only on mobile devices
+        
+        '@media (max-width: 600px)': {
           '& > *': {
             m: 1,
             width: '100%',
