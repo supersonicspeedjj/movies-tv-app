@@ -70,12 +70,12 @@ function Searchcomp(props) {
         onFocus={handleFocus} 
         inputRef={inputRef} 
         sx={{
-          borderRadius: '100px', 
+          
           width: '200px', 
           marginBottom: '30px',
         }}
       />
-      <IconButton aria-label="search" onClick={caller} style={{width:"10px"}}>
+      <IconButton aria-label="search" onClick={caller} style={{width:"10px",marginBottom:"30px"}}>
       <SearchIcon />
 </IconButton>
       {/* <Button variant="contained" startIcon={}  style={{height:"30px",width:""}}>

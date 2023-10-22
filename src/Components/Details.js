@@ -43,12 +43,12 @@ function Details() {
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div style={{ display: "flex", flexDirection: "column" ,}}>
       <Box
         sx={{
           width: "100%",
           maxWidth: "100%",
-          marginTop: "40px",
+          marginTop: "30px",
           textAlign: "center",
         }}
       >
@@ -66,6 +66,9 @@ function Details() {
         sx={{
           display: "flex",
           flexDirection: "row",
+          '@media (max-width: 767px)': {
+            flexDirection:"column" 
+          },
           flexWrap: "wrap",
           justifyContent: "center",
           alignItems: "center",
@@ -76,6 +79,10 @@ function Details() {
           sx={{
             display: "flex",
             flexDirection: "row",
+            '@media (max-width: 767px)': {
+              flexDirection:"column" ,
+              justifyContent:"center",
+            },
             backgroundColor: "lightgray",
             borderRadius: "20px",
             padding: "20px",
@@ -92,6 +99,12 @@ function Details() {
               width: "300px",
               objectFit: "cover",
               borderRadius: "10px",
+              '@media (max-width: 767px)': {
+                flexDirection:"column" ,
+                justifyContent:"center",
+                flexWrap:"wrap",
+                display:"flex",
+              },
             }}
           />
           <div style={{ marginLeft: "20px" }}>
@@ -108,6 +121,13 @@ function Details() {
               fontFamily="sans-serif"
               textAlign="left"
               marginBottom="10px"
+              style={{ '@media (max-width: 767px)': {
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                alignItems: "center",
+                margin: "20px",
+              },}}
             >
               {desc}
             </Typography>

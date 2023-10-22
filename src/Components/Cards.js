@@ -9,14 +9,19 @@ import { Link } from 'react-router-dom';
 export default function Cards(props) {
   return (
     <Link to={`/particular/${props.title}/${props.year}/${props.id}`}>
-    <Card sx={{  maxWidth: 345, minHeight:280 ,boxShadow: 5,marginBottom:"10px" ,backgroundColor:"#D3D3D3"}}>
+    <Card sx={{  maxWidth: 345, minHeight:280 ,maxHeight:500,boxShadow: 5,marginBottom:"10px" ,backgroundColor:"#D3D3D3", '@media (max-width: 767px)': {
+    maxHeight: 'none', 
+  }
+    }}>
       <CardActionArea>
         <CardMedia
-        // sx={{ maxHeight:"180px"}}
+        sx={{ maxHeight:"500px",'@media (max-width: 767px)': {
+          maxHeight: 'none', 
+        }}}
           component="img"
           
           image={props.image}
-          alt="green iguana"
+          alt="poster"
         />
         <CardContent>
           <Typography gutterBottom variant="h7" component="div">
