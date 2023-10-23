@@ -49,7 +49,7 @@ function Tending() {
 
       function getStrBeforeColon(str) {
         for (var i = 0; i < str.length; i++) {
-          if (str[i] === ":") {
+          if (str[i] === ":" || str[i] === "|") {
             return str.slice(0, i);
           }
         }
