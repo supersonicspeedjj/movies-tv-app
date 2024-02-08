@@ -86,9 +86,9 @@ function Tending() {
           const imageData = await response.json();
   
           return {
-            idIMDB: imageData.data.movies[0].idIMDB,
-            urlPoster: imageData.data.movies[0].urlPoster,
-            year: imageData.data.movies[0].year,
+           idIMDB: imageData.data.movies[0]?.idIMDB || null,
+    urlPoster: imageData.data.movies[0]?.urlPoster || null,
+    year: imageData.data.movies[0]?.year || null,
           };
         });
         
