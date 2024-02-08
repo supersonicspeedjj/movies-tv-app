@@ -81,7 +81,7 @@ function Tending() {
           const response = await fetch(
             `https://www.myapifilms.com/imdb/idIMDB?title=${getStrBeforeColon(
               title
-            )}&token=15ae760f-f258-4187-9094-ea43a5284e4f`
+            )}&token=e78c39cc-2fa5-46e3-96ea-74c9e5e09f16`
           );
           const imageData = await response.json();
   
