@@ -64,16 +64,17 @@ function Searchcomp(props) {
     <div>
       <div style={{display:"flex",justifyContent:"flex-end",marginTop:"20px"}}>
       <TextField
-       size="small" 
+       size="large" 
         label="search"
         onChange={handleChange}
         onFocus={handleFocus} 
         inputRef={inputRef} 
         sx={{
           
-          width: '200px', 
+          width: '90vw', 
           marginBottom: '30px',
         }}
+        style={{border:'solid black 2px',borderRadius:"10px"}}
       />
       <IconButton aria-label="search" onClick={caller} style={{width:"10px",marginBottom:"30px"}}>
       <SearchIcon />

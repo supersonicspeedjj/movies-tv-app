@@ -55,7 +55,7 @@ function Details() {
         <Typography
           variant="h3"
           gutterBottom
-          fontFamily="sans-serif"
+          fontFamily="M PLUS Rounded 1c"
           fontWeight="bolder"
         >
           {title}
@@ -111,6 +111,7 @@ function Details() {
             <Typography
               marginBottom={"-10px"}
               marginTop={"-30px"}
+              fontFamily="M PLUS Rounded 1c"
               textAlign={"left"}
             >
               <h1>Plot</h1>
@@ -118,7 +119,7 @@ function Details() {
             <Typography
               variant="h6"
               gutterBottom
-              fontFamily="sans-serif"
+              fontFamily="M PLUS Rounded 1c"
               textAlign="left"
               marginBottom="10px"
               style={{ '@media (max-width: 767px)': {
@@ -133,7 +134,7 @@ function Details() {
             </Typography>
             <Typography
               variant="h6"
-              fontFamily="sans-serif"
+              fontFamily="M PLUS Rounded 1c"
               textAlign="left"
               marginTop="-10px"
             >

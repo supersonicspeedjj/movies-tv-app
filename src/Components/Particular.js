@@ -4,9 +4,11 @@ import Stack from "@mui/material/Stack";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import Cards from "./Cards";
+import { useDispatch, useSelector } from "react-redux";
 import Grid from "@mui/material/Grid";
+
 const Particular = memo(() => {
-    
+  const tv =  useSelector((state) => state.data);
     const [titles_tv, settitles_tv] = useState([]);
     const [trendtv, settv] = useState([]);
     const {type} = useParams();
@@ -33,77 +35,99 @@ const Particular = memo(() => {
     async function fetchData() {
         setshould(false);
         if(type==="movies"){
-            const url = `https://trend-api-git-master-supersonicspeedjj.vercel.app/movies`;
-            const response = await fetch(url);
-            const data = await response.json();
-            const text = data.map((itera) => itera.text);
-            settitles_tv(text);
+            // const url = `https://trend-api-git-master-supersonicspeedjj.vercel.app/movies`;
+            // const response = await fetch(url);
+            // const data = await response.json();
+            // const text = data.map((itera) => itera.text);
+            // settitles_tv(text);
       
-            const fetchImageAndIdData = async (titlesArray, setImagesFunc, setIdFunc, setyaer_s) => {
-                const imageAndIdRequests = titlesArray.map(async (title) => {
-                  const response = await fetch(
-                    `https://www.myapifilms.com/imdb/idIMDB?title=${getStrBeforeColon(
-                      title
-                    )}&token=15ae760f-f258-4187-9094-ea43a5284e4f`
-                  );
-                  const imageData = await response.json();
+            // const fetchImageAndIdData = async (titlesArray, setImagesFunc, setIdFunc, setyaer_s) => {
+            //     const imageAndIdRequests = titlesArray.map(async (title) => {
+            //       const response = await fetch(
+            //         `https://www.myapifilms.com/imdb/idIMDB?title=${getStrBeforeColon(
+            //           title
+            //         )}&token=15ae760f-f258-4187-9094-ea43a5284e4f`
+            //       );
+            //       const imageData = await response.json();
           
-                  return {
-                    idIMDB: imageData.data.movies[0].idIMDB,
-                    urlPoster: imageData.data.movies[0].urlPoster,
-                    year: imageData.data.movies[0].year,
-                  };
-                });
+            //       return {
+            //         idIMDB: imageData.data.movies[0].idIMDB,
+            //         urlPoster: imageData.data.movies[0].urlPoster,
+            //         year: imageData.data.movies[0].year,
+            //       };
+            //     });
           
-                const imageAndIdData = await Promise.all(imageAndIdRequests);
-                const ids = imageAndIdData.map((item) => item.idIMDB);
-                const images = imageAndIdData.map((item) => item.urlPoster);
-                const year = imageAndIdData.map((item)=>item.year);
-                setImagesFunc(images);
-                setIdFunc(ids);
-                setyaer_s(year);
-              };
-                await Promise.all([
-                    fetchImageAndIdData(text, settv, setid,setyaer_s),
+            //     const imageAndIdData = await Promise.all(imageAndIdRequests);
+            //     const ids = imageAndIdData.map((item) => item.idIMDB);
+            //     const images = imageAndIdData.map((item) => item.urlPoster);
+            //     const year = imageAndIdData.map((item)=>item.year);
+            //     setImagesFunc(images);
+            //     setIdFunc(ids);
+            //     setyaer_s(year);
+            //   };
+            //     await Promise.all([
+            //         fetchImageAndIdData(text, settv, setid,setyaer_s),
                    
-                  ]);
+            //       ]);
+            if(tv&&tv.length>0){
+              await Promise.all([
+              
+                settv(tv[5]),
+                setid(tv[4]),
+                setyaer_s(tv[6]),
+                settitles_tv(tv[7])
+              
+                
+          ]);
+              }
                   setshould(true);
         }
         else if(type==="tv"){
-            const url = `https://trend-api-git-master-supersonicspeedjj.vercel.app`;
-            const response = await fetch(url);
-            const data = await response.json();
-            const text = data.map((itera) => itera.text);
-            settitles_tv(text);
+            // const url = `https://trend-api-git-master-supersonicspeedjj.vercel.app`;
+            // const response = await fetch(url);
+            // const data = await response.json();
+            // const text = data.map((itera) => itera.text);
+            // settitles_tv(text);
           
-            const fetchImageAndIdData = async (titlesArray, setImagesFunc, setIdFunc, setyaer_s) => {
-                const imageAndIdRequests = titlesArray.map(async (title) => {
-                  const response = await fetch(
-                    `https://www.myapifilms.com/imdb/idIMDB?title=${getStrBeforeColon(
-                      title
-                    )}&token=15ae760f-f258-4187-9094-ea43a5284e4f`
-                  );
-                  const imageData = await response.json();
+            // const fetchImageAndIdData = async (titlesArray, setImagesFunc, setIdFunc, setyaer_s) => {
+            //     const imageAndIdRequests = titlesArray.map(async (title) => {
+            //       const response = await fetch(
+            //         `https://www.myapifilms.com/imdb/idIMDB?title=${getStrBeforeColon(
+            //           title
+            //         )}&token=15ae760f-f258-4187-9094-ea43a5284e4f`
+            //       );
+            //       const imageData = await response.json();
           
-                  return {
-                    idIMDB: imageData.data.movies[0].idIMDB,
-                    urlPoster: imageData.data.movies[0].urlPoster,
-                    year: imageData.data.movies[0].year,
-                  };
-                });
+            //       return {
+            //         idIMDB: imageData.data.movies[0].idIMDB,
+            //         urlPoster: imageData.data.movies[0].urlPoster,
+            //         year: imageData.data.movies[0].year,
+            //       };
+            //     });
           
-                const imageAndIdData = await Promise.all(imageAndIdRequests);
-                const ids = imageAndIdData.map((item) => item.idIMDB);
-                const images = imageAndIdData.map((item) => item.urlPoster);
-                const year = imageAndIdData.map((item)=>item.year);
-                setImagesFunc(images);
-                setIdFunc(ids);
-                setyaer_s(year);
-              };
-                await Promise.all([
-                    fetchImageAndIdData(text, settv, setid,setyaer_s),
+            //     const imageAndIdData = await Promise.all(imageAndIdRequests);
+            //     const ids = imageAndIdData.map((item) => item.idIMDB);
+            //     const images = imageAndIdData.map((item) => item.urlPoster);
+            //     const year = imageAndIdData.map((item)=>item.year);
+            //     setImagesFunc(images);
+            //     setIdFunc(ids);
+            //     setyaer_s(year);
+            //   };
+            //     await Promise.all([
+            //         fetchImageAndIdData(text, settv, setid,setyaer_s),
                    
-                  ]);
+            //       ]);
+            if(tv&&tv.length>0){
+              await Promise.all([
+              
+                settv(tv[1]),
+                setid(tv[0]),
+                setyaer_s(tv[2]),
+                settitles_tv(tv[3])
+              
+                
+          ]);
+              }
                   setshould(true);
         }
     

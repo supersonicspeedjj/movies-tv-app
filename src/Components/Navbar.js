@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 
 import Container from '@mui/material/Container';
 import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
-
+import { Link } from 'react-router-dom';
 
 function ResponsiveAppBar() {
   
@@ -22,12 +22,13 @@ function ResponsiveAppBar() {
       <Container maxWidth="xl" >
         <Toolbar disableGutters>
           <TheaterComedyIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 ,fontSize:"3rem"}} />
-          
+          <Link to={"/"} style={{textDecoration:"none"}}>
+
           <Typography
             variant="h6"
             noWrap
             component="a"
-          href='/'
+            
             
             sx={{
               mr: 2,
@@ -38,9 +39,10 @@ function ResponsiveAppBar() {
               color: 'black',
               textDecoration: 'none',
             }}
-          >
+            >
            Watch Compass
           </Typography>
+            </Link>
 
          
            
