@@ -10,7 +10,7 @@ const fetchtrending = createAsyncThunk("fetchtrending", async () => {
   // return data;
   var trendtv=[]
 
-  var movies=[]
+  var movies1=[]
   
   var year_s=[]
   var year_m=[]
@@ -58,9 +58,9 @@ const fetchtrending = createAsyncThunk("fetchtrending", async () => {
         const imageData = await response.json();
         
          return {
-    idIMDB: imageData.data.movies[0]?.idIMDB || null,
-    urlPoster: imageData.data.movies[0]?.urlPoster || null,
-    year: imageData.data.movies[0]?.year || null,
+    idIMDB: imageData?.data?.movies[0]?.idIMDB || null,
+    urlPoster: imageData?.data?.movies[0]?.urlPoster || null,
+    year: imageData?.data?.movies[0]?.year || null,
 };
       });
 
@@ -83,12 +83,12 @@ const fetchtrending = createAsyncThunk("fetchtrending", async () => {
     }
     else{
     
-      movies = movies.concat(images);
+      movies1 = movies1.concat(images);
      
       idm = idm.concat(ids);
   
       year_m = year_m.concat(year);
-      console.log(movies);
+      console.log(movies1);
       console.log(idm);
       console.log(year_m);
     }
@@ -103,7 +103,7 @@ await Promise.all([
 
 
 
-  return [id, trendtv, year_s, text,idm, movies, year_m, text_m];
+  return [id, trendtv, year_s, text,idm, movies1, year_m, text_m];
 });
 
 const dataSlice = createSlice({
